@@ -286,6 +286,86 @@ canvas {
   padding: 10px;
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .sidebar a {
+    flex: 1 1 50%; /* two links per row */
+    text-align: center;
+    padding: 10px 5px;
+  }
+
+  .top-bar {
+    position: relative;
+    width: 100%;
+    padding: 8px 10px;
+    text-align: center;
+  }
+
+  .logo {
+    height: 30px;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 15px 10px;
+  }
+
+  .card {
+    width: 100%; /* stack cards vertically */
+    margin: 10px 0;
+  }
+
+  .charts-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  canvas {
+    width: 100% !important;
+    min-width: 0;
+    max-width: 100%;
+    height: auto !important;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table th, table td {
+    white-space: nowrap;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-bar input,
+  .filter-bar select,
+  .filter-bar button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .chip-filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 
   </style>
