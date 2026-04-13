@@ -602,19 +602,18 @@ canvas {
 
   async function fetchReadings() {
     try {
-      const userid = "5f30067e12fa4c2d9515bd8772f025eb";
+      const userid = "user_2";
 
       // const response = await fetch("https://api.neuronwise.in/nw-ui/add_moist?userid=" + userid, {
       //   method: "POST",
       // });
        const response = await fetch(
-        `https://api.neuronwise.in/ui/add_moist?userid=${userid}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
+          `http://44.205.8.114:5000/ui/add_moist?userid=${userid}`,
+          {
+              method: "POST",
+              headers: {
+              "Content-Type": "application/json"
           },
-          // If API only needs userid in query, keep body empty or send {} if backend expects JSON
           body: JSON.stringify({})
         }
       );
