@@ -590,8 +590,8 @@ canvas {
     document.getElementById(id).classList.add('active');
   }
 
-  const apiUrl = "https://api.neuronwise.in/add_moist";
-  const userid = "5f30067e12fa4c2d9515bd8772f025eb";
+  const apiUrl = " https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture";
+  const userid = "user_1";
   const rowsPerPage = 20;
   let allReadings = [];
   let moistureChart = null;
@@ -602,15 +602,15 @@ canvas {
 
   async function fetchReadings() {
     try {
-      const userid = "user_2";
+      const userid = "user_1";
 
       // const response = await fetch("https://api.neuronwise.in/nw-ui/add_moist?userid=" + userid, {
       //   method: "POST",
       // });
        const response = await fetch(
-          `https://api.neuronwise.in/ui/add_moist?userid=${userid}`,
+          `https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture?userid=${userid}`,
           {
-              method: "POST",
+              method: "GET",
               headers: {
               "Content-Type": "application/json"
           },
