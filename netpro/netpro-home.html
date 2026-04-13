@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard</title>
   <style>
     body {
@@ -10,14 +11,15 @@
       font-family: Arial, sans-serif;
       display: flex;
     }
+
     .top-bar {
-     position: fixed;
-     top: 0;
-     right: 0;
-     padding: 10px 20px;
-     z-index: 1000;
-     background-color: #ffffff;
-   }
+      position: fixed;
+      top: 0;
+      right: 0;
+      padding: 10px 20px;
+      z-index: 1000;
+      background-color: #ffffff;
+    }
 
     .logo {
       height: 40px;
@@ -65,7 +67,7 @@
       padding: 20px;
       border-radius: 5px;
       width: 180px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     table {
@@ -74,7 +76,8 @@
       margin-top: 15px;
     }
 
-    th, td {
+    th,
+    td {
       border: 1px solid #ddd;
       padding: 8px;
     }
@@ -123,10 +126,12 @@
       max-width: 600px;
       margin-top: 20px;
     }
+
     .sidebar a.active {
       background-color: #007bff;
       color: white;
     }
+
     .analytics-header {
       display: flex;
       justify-content: space-between;
@@ -169,6 +174,7 @@
       background-color: #007bff;
       color: white;
     }
+
     .charts-row {
       display: flex;
       justify-content: space-between;
@@ -177,14 +183,18 @@
       flex-wrap: wrap;
     }
 
-    #moistureChart, #humidityChart {
+    #moistureChart,
+    #humidityChart {
       background-color: #f9f9f9;
       border-radius: 8px;
       padding: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      height: 180px;   /* You can tweak this value */
-      width: 45%;      /* Adjust width for layout */
+      height: 180px;
+      /* You can tweak this value */
+      width: 45%;
+      /* Adjust width for layout */
     }
+
     #users {
       padding: 20px;
     }
@@ -195,7 +205,9 @@
       margin-bottom: 20px;
     }
 
-    #addUserForm input, #addUserForm select, #addUserForm button {
+    #addUserForm input,
+    #addUserForm select,
+    #addUserForm button {
       padding: 8px;
       font-size: 14px;
     }
@@ -205,7 +217,8 @@
       border-collapse: collapse;
     }
 
-    #userTable th, #userTable td {
+    #userTable th,
+    #userTable td {
       padding: 10px;
       border-bottom: 1px solid #ddd;
     }
@@ -226,6 +239,7 @@
       background-color: #3498db;
       color: white;
     }
+
     .limit-btn {
       margin-left: 10px;
       padding: 4px 8px;
@@ -246,140 +260,144 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
     }
 
-     .modal-content {
-       background-color: #fff;
-       margin: 15% auto;
-       padding: 20px;
-       width: 300px;
-       border-radius: 8px;
-       text-align: center;
-     }
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      text-align: center;
+    }
 
-      .modal-content input {
-        padding: 8px;
-        width: 80%;
-        margin-bottom: 10px;
+    .modal-content input {
+      padding: 8px;
+      width: 80%;
+      margin-bottom: 10px;
+    }
+
+    .modal-content .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .charts-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    canvas {
+      flex: 1;
+      min-width: 350px;
+      max-width: 500px;
+      background: #fff;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
       }
 
-      .modal-content .close {
-        float: right;
-        font-size: 24px;
-        cursor: pointer;
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
       }
+
+      .sidebar a {
+        flex: 1 1 50%;
+        /* two links per row */
+        text-align: center;
+        padding: 10px 5px;
+      }
+
+      .top-bar {
+        position: relative;
+        width: 100%;
+        padding: 8px 10px;
+        text-align: center;
+      }
+
+      .logo {
+        height: 30px;
+      }
+
+      .content {
+        margin-left: 0;
+        padding: 15px 10px;
+      }
+
+      .card {
+        width: 100%;
+        /* stack cards vertically */
+        margin: 10px 0;
+      }
+
       .charts-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  margin-top: 20px;
-}
+        flex-direction: column;
+        gap: 15px;
+      }
 
-canvas {
-  flex: 1;
-  min-width: 350px;
-  max-width: 500px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
+      canvas {
+        width: 100% !important;
+        min-width: 0;
+        max-width: 100%;
+        height: auto !important;
+      }
 
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
+      table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+      }
 
-  .sidebar a {
-    flex: 1 1 50%; /* two links per row */
-    text-align: center;
-    padding: 10px 5px;
-  }
+      table th,
+      table td {
+        white-space: nowrap;
+      }
 
-  .top-bar {
-    position: relative;
-    width: 100%;
-    padding: 8px 10px;
-    text-align: center;
-  }
+      .filter-bar {
+        flex-direction: column;
+        gap: 10px;
+      }
 
-  .logo {
-    height: 30px;
-  }
+      .filter-bar input,
+      .filter-bar select,
+      .filter-bar button {
+        width: 100%;
+        box-sizing: border-box;
+      }
 
-  .content {
-    margin-left: 0;
-    padding: 15px 10px;
-  }
-
-  .card {
-    width: 100%; /* stack cards vertically */
-    margin: 10px 0;
-  }
-
-  .charts-row {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  canvas {
-    width: 100% !important;
-    min-width: 0;
-    max-width: 100%;
-    height: auto !important;
-  }
-
-  table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  table th, table td {
-    white-space: nowrap;
-  }
-
-  .filter-bar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .filter-bar input,
-  .filter-bar select,
-  .filter-bar button {
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .chip-filters {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-
+      .chip-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
+
 <body>
   <div class="sidebar">
     <a href="#" onclick="showSection('home')">Home</a>
     <a href="#" onclick="showSection('readings')">Readings</a>
     <a href="#" onclick="showSection('analytics')">Analytics</a>
-<!--     <a href="#" onclick="showSection('users')">Users</a> -->
+    <!--     <a href="#" onclick="showSection('users')">Users</a> -->
   </div>
   <div class="top-bar">
 
-        <img src="https://s3.ap-south-1.amazonaws.com/neuronwise.in/LOGO_NAECO1.png" alt="Logo" class="logo">
+    <img src="https://s3.ap-south-1.amazonaws.com/neuronwise.in/LOGO_NAECO1.png" alt="Logo" class="logo">
   </div>
   <div class="content">
     <div id="home" class="section active">
@@ -387,13 +405,13 @@ canvas {
       <div class="card">Total Scans: <span id="totalScans">0</span></div>
       <div class="card">Above Limit: <span id="aboveLimit">0</span></div>
       <div class="card">Below Limit: <span id="belowLimit">0</span></div>
-            <div class="card" style="width:auto;">
-               Moisture Limit: <span id="moistureLimit">15</span><span id="moistureLimit">%</span>
-          <button onclick="openLimitPopup()" class="limit-btn">Set Limit</button>
+      <div class="card" style="width:auto;">
+        Moisture Limit: <span id="moistureLimit">15</span><span id="moistureLimit">%</span>
+        <button onclick="openLimitPopup()" class="limit-btn">Set Limit</button>
       </div>
-        <div class="card" style="background-color: #2980b1;color: white;">District: <span id="district">Puri</span></div>
-        <div class="card" style="background-color: #2980b9;color: white;">RMC: <span id="rmc">Nimapara</span></div>
-    
+      <div class="card" style="background-color: #2980b1;color: white;">District: <span id="district">Puri</span></div>
+      <div class="card" style="background-color: #2980b9;color: white;">RMC: <span id="rmc">Nimapara</span></div>
+
 
       <!-- Limit Popup Modal -->
       <div id="limitModal" class="modal">
@@ -405,21 +423,21 @@ canvas {
         </div>
       </div>
       <h3>Last 20 Readings</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Date</th>
-          <th>Sample</th>
-          <th>Crop</th>
-          <th>Moisture (%)</th>
-          <th>Humidity</th>
-          <th>Temperature</th>
-          <th>Device Id</th>
-        </tr>
-      </thead>
-      <tbody id="latestReadingsBody"></tbody>
-    </table>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Sample</th>
+            <th>Crop</th>
+            <th>Moisture (%)</th>
+            <th>Humidity</th>
+            <th>Temperature</th>
+            <th>Device Id</th>
+          </tr>
+        </thead>
+        <tbody id="latestReadingsBody"></tbody>
+      </table>
 
     </div>
 
@@ -434,11 +452,11 @@ canvas {
           <option value="moisture">Moisture %</option>
         </select>
         <input type="text" id="searchInput" placeholder="Search Here..." style="width: 300px;">
-         <!-- Range inputs for Moisture % -->
+        <!-- Range inputs for Moisture % -->
         <div id="moistureRange" style="display: none; align-items: center; gap: 5px;">
-            <input type="number" id="minMoisture" placeholder="Min %" style="width: 80px; height: 30px;">
-            <span>–</span>
-            <input type="number" id="maxMoisture" placeholder="Max %" style="width: 80px; height: 30px;">
+          <input type="number" id="minMoisture" placeholder="Min %" style="width: 80px; height: 30px;">
+          <span>–</span>
+          <input type="number" id="maxMoisture" placeholder="Max %" style="width: 80px; height: 30px;">
         </div>
         <label for="startDate">Start Date</label>
         <input type="date" id="startDate">
@@ -447,66 +465,69 @@ canvas {
         <button class="export-btn" onclick="exportToCSV()">Export CSV</button>
       </div>
       <table id="readingsTable">
-       <thead>
-        <tr>
-          <th>#</th>
-          <th>Date</th>
-          <th>Sample</th>
-          <th>Crop</th>
-          <th>Moisture (%)</th>
-          <th>Humidity</th>
-          <th>Temparature</th>
-          <th>Device Id</th>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Sample</th>
+            <th>Crop</th>
+            <th>Moisture (%)</th>
+            <th>Humidity</th>
+            <th>Temparature</th>
+            <th>Device Id</th>
           </tr>
-         </thead>
+        </thead>
         <tbody id="readingsTableBody"></tbody>
-       </table>
+      </table>
 
       <div class="pagination" id="pagination"></div>
     </div>
     <div id="analytics" class="section">
-  <div class="analytics-header" style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="analytics-header" style="display: flex; flex-direction: column; gap: 10px;">
 
-    <!-- Chips -->
-    <div class="chip-filters" style="display: flex; gap: 10px;">
-      <button class="chip active" onclick="setAnalyticsFilter('daily')">Daily</button>
-      <button class="chip" onclick="setAnalyticsFilter('weekly')">Weekly</button>
-      <button class="chip" onclick="setAnalyticsFilter('monthly')">Monthly</button>
+        <!-- Chips -->
+        <div class="chip-filters" style="display: flex; gap: 10px;">
+          <button class="chip active" onclick="setAnalyticsFilter('daily')">Daily</button>
+          <button class="chip" onclick="setAnalyticsFilter('weekly')">Weekly</button>
+          <button class="chip" onclick="setAnalyticsFilter('monthly')">Monthly</button>
+        </div>
+
+        <!-- Dropdowns -->
+        <div class="dropdown-wrapper" style="display: flex; gap: 10px; align-items: center;">
+          <label style="font-weight: 500;">Filter Type:</label>
+          <select id="filterTypeAnalytics" onchange="populateFilterValuesDropdown()"
+            style="height: 35px; padding: 5px; min-width: 120px;">
+            <option value="device">Device</option>
+            <option value="commodity">Crop</option>
+          </select>
+
+          <label style="font-weight: 500;">Select:</label>
+          <select id="filterValueAnalytics" onchange="renderCharts()"
+            style="height: 35px; padding: 5px; min-width: 150px;">
+            <option value="">All</option>
+            <!-- Options will be populated dynamically -->
+          </select>
+        </div>
+
+      </div>
+
+      <div class="charts-row"
+        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
+        <canvas id="moistureChart" height="150" width="400"></canvas>
+        <canvas id="humidityChart" height="150" width="400"></canvas>
+        <canvas id="samplesChart" height="150" width="400"></canvas>
+      </div>
     </div>
-
-    <!-- Dropdowns -->
-    <div class="dropdown-wrapper" style="display: flex; gap: 10px; align-items: center;">
-      <label style="font-weight: 500;">Filter Type:</label>
-      <select id="filterTypeAnalytics" onchange="populateFilterValuesDropdown()" style="height: 35px; padding: 5px; min-width: 120px;">
-        <option value="device">Device</option>
-        <option value="commodity">Crop</option>
-      </select>
-
-      <label style="font-weight: 500;">Select:</label>
-      <select id="filterValueAnalytics" onchange="renderCharts()" style="height: 35px; padding: 5px; min-width: 150px;">
-        <option value="">All</option>
-        <!-- Options will be populated dynamically -->
-      </select>
-    </div>
-
-  </div>
-
-  <div class="charts-row" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 20px;">
-    <canvas id="moistureChart" height="150" width="400"></canvas>
-    <canvas id="humidityChart" height="150" width="400"></canvas>
-    <canvas id="samplesChart" height="150" width="400"></canvas>
-  </div>
-</div>
 
 
     <!-- <div id="analytics" class="section">
     <div class="analytics-header"> -->
-        
-<!--      <div class="date-range">
+
+    <!--      <div class="date-range">
       <label>Start Date: <input type="date" id="start-date"></label>
       <label>End Date: <input type="date" id="end-date"></label>
      </div> -->
-     <!-- <div class="chip-filters">
+    <!-- <div class="chip-filters">
       <button class="chip active" onclick="setAnalyticsFilter('daily')">Daily</button>
       <button class="chip" onclick="setAnalyticsFilter('weekly')">Weekly</button>
       <button class="chip" onclick="setAnalyticsFilter('monthly')">Monthly</button>
@@ -535,7 +556,7 @@ canvas {
     <!--    <li>User C - Editor</li>-->
     <!--  </ul>-->
     <!--</div>-->
-<!--     <div id="users" class="section">
+    <!--     <div id="users" class="section">
   <h2>User Access Management</h2>
 
   <form id="addUserForm">
@@ -580,87 +601,86 @@ canvas {
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-      let userMoistureLimit = 15;
-      let samplesChart = null;
+  <script>
+    let userMoistureLimit = 15;
+    let samplesChart = null;
 
-  const sections = document.querySelectorAll('.section');
-  function showSection(id) {
-    sections.forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
+    const sections = document.querySelectorAll('.section');
+    function showSection(id) {
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
 
-  const apiUrl = " https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture";
-  const userid = "user_1";
-  const rowsPerPage = 20;
-  let allReadings = [];
-  let moistureChart = null;
-  let humidityChart = null;
+    const apiUrl = "https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture";
+    const userid = "user_1";
+    const rowsPerPage = 20;
+    let allReadings = [];
+    let moistureChart = null;
+    let humidityChart = null;
 
-  let currentPage = 1;
-  let currentAnalyticsFilter = 'daily';
+    let currentPage = 1;
+    let currentAnalyticsFilter = 'daily';
 
-  async function fetchReadings() {
-    try {
-      const userid = "user_1";
+    async function fetchReadings() {
+      try {
+        const userid = "user_1";
 
-      // const response = await fetch("https://api.neuronwise.in/nw-ui/add_moist?userid=" + userid, {
-      //   method: "POST",
-      // });
-       const response = await fetch(
+        // const response = await fetch("https://api.neuronwise.in/nw-ui/add_moist?userid=" + userid, {
+        //   method: "POST",
+        // });
+        const response = await fetch(
           `https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture?userid=${userid}`,
           {
-              method: "GET",
-              headers: {
+            method: "GET",
+            headers: {
               "Content-Type": "application/json"
-          },
-          body: JSON.stringify({})
-        }
-      );
-      if (!response.ok) throw new Error("Network response was not ok");
+            }
+          }
+        );
+        if (!response.ok) throw new Error("Network response was not ok");
 
-      const data = await response.json();
+        const data = await response.json();
 
-      // Sort by moistdate in descending order (latest first)
-      data.sort((a, b) => new Date(b.moistdate) - new Date(a.moistdate));
+        // Sort by moistdate in descending order (latest first)
+        data.sort((a, b) => new Date(b.moistdate) - new Date(a.moistdate));
 
-      allReadings = data.map((item, index) => ({
-        id: index + 1,
-        date: new Date(item.moistdate).toISOString().split("T")[0],
-        moisture: parseFloat(item.moisture),
-        humidity: parseFloat(item.humidity),
-        temperature: item.temperature + "°C",
-        commodity: item.commodity,
-        lot: item.id,
-        device: item.deviceId
-      }));
+        allReadings = data.map((item, index) => ({
+          id: index + 1,
+          date: new Date(item.moistdate).toISOString().split("T")[0],
+          moisture: parseFloat(item.moisture),
+          humidity: parseFloat(item.humidity),
+          temperature: item.temperature + "°C",
+          commodity: item.commodity,
+          lot: item.id,
+          device: item.deviceId
+        }));
 
-      renderTable(1);
-      renderCharts();
-      updateHomeSection();
-    } catch (err) {
-      console.error("Failed to fetch readings:", err);
+        renderTable(1);
+        renderCharts();
+        updateHomeSection();
+      } catch (err) {
+        console.error("Failed to fetch readings:", err);
+      }
     }
-  }
-  function updateHomeSection() {
-    const moistureLimit = userMoistureLimit;
-    const totalScans = allReadings.length;
-    const aboveLimit = allReadings.filter(r => parseFloat(r.moisture) > moistureLimit).length;
-    const belowLimit = totalScans - aboveLimit;
+    function updateHomeSection() {
+      const moistureLimit = userMoistureLimit;
+      const totalScans = allReadings.length;
+      const aboveLimit = allReadings.filter(r => parseFloat(r.moisture) > moistureLimit).length;
+      const belowLimit = totalScans - aboveLimit;
 
-    const ts = document.getElementById("totalScans");
-    const al = document.getElementById("aboveLimit");
-    const bl = document.getElementById("belowLimit");
-    const tbody = document.getElementById("latestReadingsBody");
+      const ts = document.getElementById("totalScans");
+      const al = document.getElementById("aboveLimit");
+      const bl = document.getElementById("belowLimit");
+      const tbody = document.getElementById("latestReadingsBody");
 
-    if (ts) ts.textContent = totalScans;
-    if (al) al.textContent = aboveLimit;
-    if (bl) bl.textContent = belowLimit;
-    if (tbody) {
-      tbody.innerHTML = "";
-      const latest10 = allReadings.slice(0, 20);
-      latest10.forEach((r, i) => {
-        tbody.insertAdjacentHTML("beforeend", `
+      if (ts) ts.textContent = totalScans;
+      if (al) al.textContent = aboveLimit;
+      if (bl) bl.textContent = belowLimit;
+      if (tbody) {
+        tbody.innerHTML = "";
+        const latest10 = allReadings.slice(0, 20);
+        latest10.forEach((r, i) => {
+          tbody.insertAdjacentHTML("beforeend", `
           <tr>
             <td>${i + 1}</td>
             <td>${r.date}</td>
@@ -672,99 +692,99 @@ canvas {
             <td>${r.device || "-"}</td>
           </tr>
         `);
-      });
+        });
 
-    }
-  }
-  function toggleMoistureRange() {
-    const filterType = document.getElementById('filterType').value;
-    const searchInput = document.getElementById('searchInput');
-    const moistureRange = document.getElementById('moistureRange');
-
-    if (filterType === 'moisture') {
-      searchInput.style.display = 'none';
-      moistureRange.style.display = 'flex';
-    } else {
-      searchInput.style.display = 'block';
-      moistureRange.style.display = 'none';
-    }
-  }
-  function renderTable(page = 1) {
-    const filterType = document.getElementById('filterType').value;
-    const search = document.getElementById('searchInput').value.toLowerCase();
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
-    const minMoisture = parseFloat(document.getElementById('minMoisture').value);
-    const maxMoisture = parseFloat(document.getElementById('maxMoisture').value);
-    const moistureRange = document.getElementById('moistureRange');
-    if (filterType === 'moisture') {
-      searchInput.style.display = 'none';
-      moistureRange.style.display = 'flex';
-    } else {
-      searchInput.style.display = 'block';
-      moistureRange.style.display = 'none';
-    }
-    const filtered = allReadings.filter(r => {
-    let match = false;
-
-    // Filter logic based on dropdown
-    switch (filterType) {
-      case 'sampleId':
-        match = !search || r.lot?.toString().toLowerCase().includes(search);
-        break;
-      case 'deviceId':
-        match = !search || r.device?.toString().toLowerCase().includes(search);
-        break;
-      case 'commodity':
-        match = !search || r.commodity?.toString().toLowerCase().includes(search);
-        break;
-      case 'moisture':
-        const m = parseFloat(r.moisture);
-        match = (!isNaN(minMoisture) ? m >= minMoisture : true) &&
-                (!isNaN(maxMoisture) ? m <= maxMoisture : true);
-        break;
-      default:
-        match = (!search || 
-          r.lot?.toString().toLowerCase().includes(search) ||
-          r.device?.toString().toLowerCase().includes(search) ||
-          r.commodity?.toString().toLowerCase().includes(search) ||
-          r.moisture?.toString().toLowerCase().includes(search)
-        );
       }
+    }
+    function toggleMoistureRange() {
+      const filterType = document.getElementById('filterType').value;
+      const searchInput = document.getElementById('searchInput');
+      const moistureRange = document.getElementById('moistureRange');
 
-      return match &&
-        (!startDate || r.date >= startDate) &&
-        (!endDate || r.date <= endDate);
-    });
-    // const filtered = allReadings.filter(r => {
-    //  return (!search || 
-    //        r.lot.toString().includes(search) ||
-    //        r.date.includes(search) ||
-    //        r.device?.toString().toLowerCase().includes(search.toLowerCase())  ||
-    //        r.commodity?.toString().toLowerCase().includes(search.toLowerCase()) ||
-    //        r.moisture?.toString().toLowerCase().includes(search.toLowerCase()) 
-    //        ) &&
-    //      (!startDate || r.date >= startDate) &&
-    //      (!endDate || r.date <= endDate);
-    // });
+      if (filterType === 'moisture') {
+        searchInput.style.display = 'none';
+        moistureRange.style.display = 'flex';
+      } else {
+        searchInput.style.display = 'block';
+        moistureRange.style.display = 'none';
+      }
+    }
+    function renderTable(page = 1) {
+      const filterType = document.getElementById('filterType').value;
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
+      const minMoisture = parseFloat(document.getElementById('minMoisture').value);
+      const maxMoisture = parseFloat(document.getElementById('maxMoisture').value);
+      const moistureRange = document.getElementById('moistureRange');
+      if (filterType === 'moisture') {
+        searchInput.style.display = 'none';
+        moistureRange.style.display = 'flex';
+      } else {
+        searchInput.style.display = 'block';
+        moistureRange.style.display = 'none';
+      }
+      const filtered = allReadings.filter(r => {
+        let match = false;
 
-    // const filtered = allReadings.filter(r => {
+        // Filter logic based on dropdown
+        switch (filterType) {
+          case 'sampleId':
+            match = !search || r.lot?.toString().toLowerCase().includes(search);
+            break;
+          case 'deviceId':
+            match = !search || r.device?.toString().toLowerCase().includes(search);
+            break;
+          case 'commodity':
+            match = !search || r.commodity?.toString().toLowerCase().includes(search);
+            break;
+          case 'moisture':
+            const m = parseFloat(r.moisture);
+            match = (!isNaN(minMoisture) ? m >= minMoisture : true) &&
+              (!isNaN(maxMoisture) ? m <= maxMoisture : true);
+            break;
+          default:
+            match = (!search ||
+              r.lot?.toString().toLowerCase().includes(search) ||
+              r.device?.toString().toLowerCase().includes(search) ||
+              r.commodity?.toString().toLowerCase().includes(search) ||
+              r.moisture?.toString().toLowerCase().includes(search)
+            );
+        }
+
+        return match &&
+          (!startDate || r.date >= startDate) &&
+          (!endDate || r.date <= endDate);
+      });
+      // const filtered = allReadings.filter(r => {
+      //  return (!search || 
+      //        r.lot.toString().includes(search) ||
+      //        r.date.includes(search) ||
+      //        r.device?.toString().toLowerCase().includes(search.toLowerCase())  ||
+      //        r.commodity?.toString().toLowerCase().includes(search.toLowerCase()) ||
+      //        r.moisture?.toString().toLowerCase().includes(search.toLowerCase()) 
+      //        ) &&
+      //      (!startDate || r.date >= startDate) &&
+      //      (!endDate || r.date <= endDate);
+      // });
+
+      // const filtered = allReadings.filter(r => {
       // return (!search || r.id.toString().includes(search) || r.date.includes(search)) &&
-             // (!startDate || r.date >= startDate) &&
-             // (!endDate || r.date <= endDate);
-    // });
+      // (!startDate || r.date >= startDate) &&
+      // (!endDate || r.date <= endDate);
+      // });
 
-    const start = (page - 1) * rowsPerPage;
-    const end = start + rowsPerPage;
-    const currentData = filtered.slice(start, end);
-    const tbody = document.querySelector("#readingsTable tbody");
-    tbody.innerHTML = "";
+      const start = (page - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const currentData = filtered.slice(start, end);
+      const tbody = document.querySelector("#readingsTable tbody");
+      tbody.innerHTML = "";
 
-    currentData.forEach(r => {
-      // Helper function to replace empty/null/undefined with "-"
-      const format = val => (val === null || val === undefined || val === "" ? "-" : val);
+      currentData.forEach(r => {
+        // Helper function to replace empty/null/undefined with "-"
+        const format = val => (val === null || val === undefined || val === "" ? "-" : val);
 
-      tbody.insertAdjacentHTML("beforeend", `
+        tbody.insertAdjacentHTML("beforeend", `
         <tr>
           <td>${format(r.id)}</td>
           <td>${format(r.date)}</td>
@@ -776,404 +796,404 @@ canvas {
           <td>${format(r.device)}</td>
         </tr>
       `);
-    });
+      });
 
-    renderPagination(filtered.length);
-  }
-
-  function renderPagination(totalItems) {
-    const pageCount = Math.ceil(totalItems / rowsPerPage);
-    const container = document.getElementById("pagination");
-    container.innerHTML = "";
-    for (let i = 1; i <= pageCount; i++) {
-      const btn = document.createElement("button");
-      btn.textContent = i;
-      if (i === currentPage) btn.classList.add("active");
-      btn.onclick = () => {
-        currentPage = i;
-        renderTable(i);
-      };
-      container.appendChild(btn);
-    }
-  }
-  // function exportToCSV() {
-  //    if (!Array.isArray(allReadings) || allReadings.length === 0) {
-  //      alert("No data available to export.");
-  //      return;
-  //    }
-
-  //    const replacer = (value) =>
-  //      value === null || value === undefined
-  //        ? ""
-  //        : String(value).replace(/"/g, '""'); // Escape double quotes
-
-  //    // Add BOM (Byte Order Mark) to force UTF-8 encoding in Excel
-  //    let csvContent = "\uFEFF"; 
-
-  //    const headers = ["ID", "Date", "Commodity", "Sample", "Device Id", "Moisture", "Humidity", "Temperature"];
-  //    csvContent += headers.join(",") + "\r\n";
-
-  //    allReadings.forEach((r) => {
-  //      const row = [
-  //        replacer(r.id),
-  //        replacer(r.date),
-  //        replacer(r.commodity),
-  //        replacer(r.lot),
-  //        replacer(r.device),
-  //        replacer(r.moisture),
-  //        replacer(r.humidity),
-  //        replacer(r.temperature),
-  //      ];
-  //      csvContent += row.join(",") + "\r\n"; // Removed extra wrapping with quotes
-  //    });
-
-  //    const blob = new Blob([csvContent], {
-  //       type: "text/csv;charset=utf-8;",
-  //    });
-
-  //    const url = URL.createObjectURL(blob);
-  //    const a = document.createElement("a");
-  //    a.setAttribute("href", url);
-  //    a.setAttribute("download", "readings.csv");
-  //    document.body.appendChild(a);
-  //    a.click();
-  //    document.body.removeChild(a);
-  //    URL.revokeObjectURL(url);
-  //  }
-
-function exportToCSV() {
-  if (!Array.isArray(allReadings) || allReadings.length === 0) {
-    alert("No data available to export.");
-    return;
-  }
-
-  // Reuse same filter logic before exporting
-  const filterType = document.getElementById('filterType').value;
-  const search = document.getElementById('searchInput').value.toLowerCase();
-  const minMoisture = parseFloat(document.getElementById('minMoisture')?.value || "");
-  const maxMoisture = parseFloat(document.getElementById('maxMoisture')?.value || "");
-  const startDate = document.getElementById('startDate').value;
-  const endDate = document.getElementById('endDate').value;
-
-  const filtered = allReadings.filter(r => {
-    let match = false;
-
-    switch (filterType) {
-      case 'sampleId':
-        match = !search || r.lot?.toString().toLowerCase().includes(search);
-        break;
-      case 'deviceId':
-        match = !search || r.device?.toString().toLowerCase().includes(search);
-        break;
-      case 'commodity':
-        match = !search || r.commodity?.toString().toLowerCase().includes(search);
-        break;
-      case 'moisture':
-        const m = parseFloat(r.moisture);
-        match = (!isNaN(minMoisture) ? m >= minMoisture : true) &&
-                (!isNaN(maxMoisture) ? m <= maxMoisture : true);
-        break;
-      default:
-        match = (!search || 
-          r.lot?.toString().toLowerCase().includes(search) ||
-          r.device?.toString().toLowerCase().includes(search) ||
-          r.commodity?.toString().toLowerCase().includes(search) ||
-          r.moisture?.toString().toLowerCase().includes(search)
-        );
+      renderPagination(filtered.length);
     }
 
-    return match &&
-      (!startDate || r.date >= startDate) &&
-      (!endDate || r.date <= endDate);
-  });
+    function renderPagination(totalItems) {
+      const pageCount = Math.ceil(totalItems / rowsPerPage);
+      const container = document.getElementById("pagination");
+      container.innerHTML = "";
+      for (let i = 1; i <= pageCount; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        if (i === currentPage) btn.classList.add("active");
+        btn.onclick = () => {
+          currentPage = i;
+          renderTable(i);
+        };
+        container.appendChild(btn);
+      }
+    }
+    // function exportToCSV() {
+    //    if (!Array.isArray(allReadings) || allReadings.length === 0) {
+    //      alert("No data available to export.");
+    //      return;
+    //    }
 
-  if (filtered.length === 0) {
-    alert("No filtered data available to export.");
-    return;
-  }
+    //    const replacer = (value) =>
+    //      value === null || value === undefined
+    //        ? ""
+    //        : String(value).replace(/"/g, '""'); // Escape double quotes
 
-  // ✅ CSV generation
-  const replacer = (value) =>
-    value === null || value === undefined
-      ? ""
-      : String(value).replace(/"/g, '""');
+    //    // Add BOM (Byte Order Mark) to force UTF-8 encoding in Excel
+    //    let csvContent = "\uFEFF"; 
 
-  // Add BOM (Byte Order Mark) for UTF-8 Excel compatibility
-  let csvContent = "\uFEFF"; 
+    //    const headers = ["ID", "Date", "Commodity", "Sample", "Device Id", "Moisture", "Humidity", "Temperature"];
+    //    csvContent += headers.join(",") + "\r\n";
 
-  const headers = ["ID", "Date", "Commodity", "Sample", "Device Id", "Moisture", "Humidity", "Temperature"];
-  csvContent += headers.join(",") + "\r\n";
+    //    allReadings.forEach((r) => {
+    //      const row = [
+    //        replacer(r.id),
+    //        replacer(r.date),
+    //        replacer(r.commodity),
+    //        replacer(r.lot),
+    //        replacer(r.device),
+    //        replacer(r.moisture),
+    //        replacer(r.humidity),
+    //        replacer(r.temperature),
+    //      ];
+    //      csvContent += row.join(",") + "\r\n"; // Removed extra wrapping with quotes
+    //    });
 
-  filtered.forEach((r) => {
-    const row = [
-      replacer(r.id),
-      replacer(r.date),
-      replacer(r.commodity),
-      replacer(r.lot),
-      replacer(r.device),
-      replacer(r.moisture),
-      replacer(r.humidity),
-      replacer(r.temperature),
-    ];
-    csvContent += row.join(",") + "\r\n";
-  });
+    //    const blob = new Blob([csvContent], {
+    //       type: "text/csv;charset=utf-8;",
+    //    });
 
-  // ✅ Trigger download
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "filtered_readings.csv";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
-}
+    //    const url = URL.createObjectURL(blob);
+    //    const a = document.createElement("a");
+    //    a.setAttribute("href", url);
+    //    a.setAttribute("download", "readings.csv");
+    //    document.body.appendChild(a);
+    //    a.click();
+    //    document.body.removeChild(a);
+    //    URL.revokeObjectURL(url);
+    //  }
 
+    function exportToCSV() {
+      if (!Array.isArray(allReadings) || allReadings.length === 0) {
+        alert("No data available to export.");
+        return;
+      }
 
-  document.getElementById("searchInput").addEventListener("input", () => renderTable(1));
-  document.getElementById("startDate").addEventListener("change", () => renderTable(1));
-  document.getElementById("endDate").addEventListener("change", () => renderTable(1));
-  function setAnalyticsFilter(filter) {
-     currentAnalyticsFilter = filter;
+      // Reuse same filter logic before exporting
+      const filterType = document.getElementById('filterType').value;
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const minMoisture = parseFloat(document.getElementById('minMoisture')?.value || "");
+      const maxMoisture = parseFloat(document.getElementById('maxMoisture')?.value || "");
+      const startDate = document.getElementById('startDate').value;
+      const endDate = document.getElementById('endDate').value;
 
-     // Highlight selected chip
-     document.querySelectorAll('.chip').forEach(btn => btn.classList.remove('active'));
-     event.target.classList.add('active');
-     renderCharts();
-  }
-  // function renderCharts() {
-  //   const grouped = {};
+      const filtered = allReadings.filter(r => {
+        let match = false;
 
-  //   allReadings.forEach(r => {
-  //     const dateObj = new Date(r.date);
-  //     let key = '';
+        switch (filterType) {
+          case 'sampleId':
+            match = !search || r.lot?.toString().toLowerCase().includes(search);
+            break;
+          case 'deviceId':
+            match = !search || r.device?.toString().toLowerCase().includes(search);
+            break;
+          case 'commodity':
+            match = !search || r.commodity?.toString().toLowerCase().includes(search);
+            break;
+          case 'moisture':
+            const m = parseFloat(r.moisture);
+            match = (!isNaN(minMoisture) ? m >= minMoisture : true) &&
+              (!isNaN(maxMoisture) ? m <= maxMoisture : true);
+            break;
+          default:
+            match = (!search ||
+              r.lot?.toString().toLowerCase().includes(search) ||
+              r.device?.toString().toLowerCase().includes(search) ||
+              r.commodity?.toString().toLowerCase().includes(search) ||
+              r.moisture?.toString().toLowerCase().includes(search)
+            );
+        }
 
-  //     if (currentAnalyticsFilter === 'daily') {
-  //       key = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
-  //     } else if (currentAnalyticsFilter === 'weekly') {
-  //       const year = dateObj.getFullYear();
-  //       const week = getISOWeekNumber(dateObj); // custom function
-  //       key = `${year}-W${week}`;
-  //     } else if (currentAnalyticsFilter === 'monthly') {
-  //       const year = dateObj.getFullYear();
-  //       const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-  //       key = `${year}-${month}`;
-  //     }
+        return match &&
+          (!startDate || r.date >= startDate) &&
+          (!endDate || r.date <= endDate);
+      });
 
-  //     if (!grouped[key]) {
-  //       grouped[key] = { moisture: 0, humidity: 0, count: 0 };
-  //     }
-  //     grouped[key].moisture += r.moisture;
-  //     grouped[key].humidity += r.humidity;
-  //     grouped[key].count += 1;
-  //   });
+      if (filtered.length === 0) {
+        alert("No filtered data available to export.");
+        return;
+      }
 
-  //   const labels = Object.keys(grouped).sort();
-  //   const moistureData = labels.map(key => (grouped[key].moisture / grouped[key].count).toFixed(2));
-  //   const humidityData = labels.map(key => (grouped[key].humidity / grouped[key].count).toFixed(2));
+      // ✅ CSV generation
+      const replacer = (value) =>
+        value === null || value === undefined
+          ? ""
+          : String(value).replace(/"/g, '""');
 
-  //   // Destroy old charts if exist
-  //   if (moistureChart) moistureChart.destroy();
-  //   if (humidityChart) humidityChart.destroy();
+      // Add BOM (Byte Order Mark) for UTF-8 Excel compatibility
+      let csvContent = "\uFEFF";
 
-  //   // Moisture Chart
-  //   const ctxMoisture = document.getElementById('moistureChart').getContext('2d');
-  //   moistureChart = new Chart(ctxMoisture, {
-  //     type: 'bar',
-  //     data: {
-  //       labels: labels,
-  //       datasets: [{
-  //         label: `Avg Moisture % (${capitalize(currentAnalyticsFilter)})`,
-  //         data: moistureData,
-  //         backgroundColor: 'rgba(52, 152, 219, 0.6)'
-  //       }]
-  //     }
-  //   });
+      const headers = ["ID", "Date", "Commodity", "Sample", "Device Id", "Moisture", "Humidity", "Temperature"];
+      csvContent += headers.join(",") + "\r\n";
 
-  //   // Humidity Chart
-  //   const ctxHumidity = document.getElementById('humidityChart').getContext('2d');
-  //   humidityChart = new Chart(ctxHumidity, {
-  //     type: 'line',
-  //     data: {
-  //       labels: labels,
-  //       datasets: [{
-  //         label: `Avg Humidity % (${capitalize(currentAnalyticsFilter)})`,
-  //         data: humidityData,
-  //         borderColor: 'rgba(231, 76, 60, 0.9)',
-  //         fill: false
-  //       }]
-  //     }
-  //   });
-  // }
-  
-// Populate the second dropdown (Filter Values) based on type selected
-function populateFilterValuesDropdown() {
-  const type = document.getElementById("filterTypeAnalytics").value; // device or commodity
-  const valueDropdown = document.getElementById("filterValueAnalytics");
-  valueDropdown.innerHTML = "";
+      filtered.forEach((r) => {
+        const row = [
+          replacer(r.id),
+          replacer(r.date),
+          replacer(r.commodity),
+          replacer(r.lot),
+          replacer(r.device),
+          replacer(r.moisture),
+          replacer(r.humidity),
+          replacer(r.temperature),
+        ];
+        csvContent += row.join(",") + "\r\n";
+      });
 
-  const uniqueValues = [...new Set(allReadings.map(r => r[type]))];
-
-  const defaultOption = document.createElement("option");
-  defaultOption.value = "";
-  defaultOption.textContent = "All";
-  valueDropdown.appendChild(defaultOption);
-
-  uniqueValues.forEach(val => {
-    const opt = document.createElement("option");
-    opt.value = val;
-    opt.textContent = val;
-    valueDropdown.appendChild(opt);
-  });
-
-  renderCharts();
-}
-
-// Render charts filtered by selected value
-function renderCharts() {
-  const filterType = document.getElementById("filterTypeAnalytics").value; // device or commodity
-  const filterValue = document.getElementById("filterValueAnalytics").value; // selected item or ""
-
-  const filteredReadings = filterValue
-    ? allReadings.filter(r => r[filterType] === filterValue)
-    : allReadings;
-
-  const grouped = {};
-
-  filteredReadings.forEach(r => {
-    const dateObj = new Date(r.date);
-    let key = "";
-
-    if (currentAnalyticsFilter === "daily") {
-      // key = dateObj.toISOString().split("T")[0];
-      const month = String(dateObj.getMonth() + 1).padStart(2, '0');
-      const day = String(dateObj.getDate()).padStart(2, '0');
-      key = `${month}-${day}`;
-    } else if (currentAnalyticsFilter === "weekly") {
-      // const year = dateObj.getFullYear();
-      // const week = getISOWeekNumber(dateObj);
-      // key = `${year}-W${week}`;
-      key = getISOWeekDateRange(dateObj);
-    } else if (currentAnalyticsFilter === "monthly") {
-      const year = dateObj.getFullYear();
-      const month = String(dateObj.getMonth() + 1).padStart(2, "0");
-      key = `${year}-${month}`;
+      // ✅ Trigger download
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "filtered_readings.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
     }
 
-    if (!grouped[key]) grouped[key] = { moisture: 0, humidity: 0, count: 0 };
-    grouped[key].moisture += r.moisture;
-    grouped[key].humidity += r.humidity;
-    grouped[key].count += 1;
-  });
 
-  const labels = Object.keys(grouped).sort();
-  const moistureData = labels.map(k => (grouped[k].moisture / grouped[k].count).toFixed(2));
-  const humidityData = labels.map(k => (grouped[k].humidity / grouped[k].count).toFixed(2));
-  const samplesData = labels.map(k => grouped[k].count);
+    document.getElementById("searchInput").addEventListener("input", () => renderTable(1));
+    document.getElementById("startDate").addEventListener("change", () => renderTable(1));
+    document.getElementById("endDate").addEventListener("change", () => renderTable(1));
+    function setAnalyticsFilter(filter) {
+      currentAnalyticsFilter = filter;
 
-  // Destroy old charts
-  if (moistureChart) moistureChart.destroy();
-  if (humidityChart) humidityChart.destroy();
-  if (samplesChart) samplesChart.destroy();
-
-  // moistureChart = new Chart(document.getElementById("moistureChart"), {
-  //   type: "bar",
-  //   data: { labels, datasets: [{ label: "Avg Moisture %", data: moistureData, backgroundColor: "rgba(52, 152, 219, 0.6)" }] },
-  //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-  // });
-
-  // humidityChart = new Chart(document.getElementById("humidityChart"), {
-  //   type: "line",
-  //   data: { labels, datasets: [{ label: "Avg Humidity %", data: humidityData, borderColor: "rgba(231, 76, 60, 0.9)", fill: false }] },
-  //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-  // });
-
-  // samplesChart = new Chart(document.getElementById("samplesChart"), {
-  //   type: "bar",
-  //   data: { labels, datasets: [{ label: "Number of Samples", data: samplesData, backgroundColor: "rgba(46, 204, 113, 0.6)" }] },
-  //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
-  // });
-
-  // Average Moisture Chart
-  moistureChart = new Chart(document.getElementById("moistureChart"), {
-    type: "bar",
-    data: { labels, datasets: [{ label: "Avg Moisture (%)", data: moistureData, backgroundColor: "rgba(52, 152, 219, 0.6)" }] },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: true, position: 'top' },
-        title: { display: true, text: "Average Moisture (%)", font: { size: 18, weight: 'bold' } }
-      },
-      scales: { y: { beginAtZero: true } }
+      // Highlight selected chip
+      document.querySelectorAll('.chip').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      renderCharts();
     }
-  });
+    // function renderCharts() {
+    //   const grouped = {};
 
-  // Average Humidity Chart
-  humidityChart = new Chart(document.getElementById("humidityChart"), {
-    type: "line",
-    data: { labels, datasets: [{ label: "Avg Humidity (%)", data: humidityData, borderColor: "rgba(231, 76, 60, 0.9)", backgroundColor: "rgba(231, 76, 60, 0.4)", fill: true, tension: 0.3 }] },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: true, position: 'top' },
-        title: { display: true, text: "Average Humidity (%)", font: { size: 18, weight: 'bold' } }
-      },
-      scales: { y: { beginAtZero: true } }
+    //   allReadings.forEach(r => {
+    //     const dateObj = new Date(r.date);
+    //     let key = '';
+
+    //     if (currentAnalyticsFilter === 'daily') {
+    //       key = dateObj.toISOString().split("T")[0]; // YYYY-MM-DD
+    //     } else if (currentAnalyticsFilter === 'weekly') {
+    //       const year = dateObj.getFullYear();
+    //       const week = getISOWeekNumber(dateObj); // custom function
+    //       key = `${year}-W${week}`;
+    //     } else if (currentAnalyticsFilter === 'monthly') {
+    //       const year = dateObj.getFullYear();
+    //       const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    //       key = `${year}-${month}`;
+    //     }
+
+    //     if (!grouped[key]) {
+    //       grouped[key] = { moisture: 0, humidity: 0, count: 0 };
+    //     }
+    //     grouped[key].moisture += r.moisture;
+    //     grouped[key].humidity += r.humidity;
+    //     grouped[key].count += 1;
+    //   });
+
+    //   const labels = Object.keys(grouped).sort();
+    //   const moistureData = labels.map(key => (grouped[key].moisture / grouped[key].count).toFixed(2));
+    //   const humidityData = labels.map(key => (grouped[key].humidity / grouped[key].count).toFixed(2));
+
+    //   // Destroy old charts if exist
+    //   if (moistureChart) moistureChart.destroy();
+    //   if (humidityChart) humidityChart.destroy();
+
+    //   // Moisture Chart
+    //   const ctxMoisture = document.getElementById('moistureChart').getContext('2d');
+    //   moistureChart = new Chart(ctxMoisture, {
+    //     type: 'bar',
+    //     data: {
+    //       labels: labels,
+    //       datasets: [{
+    //         label: `Avg Moisture % (${capitalize(currentAnalyticsFilter)})`,
+    //         data: moistureData,
+    //         backgroundColor: 'rgba(52, 152, 219, 0.6)'
+    //       }]
+    //     }
+    //   });
+
+    //   // Humidity Chart
+    //   const ctxHumidity = document.getElementById('humidityChart').getContext('2d');
+    //   humidityChart = new Chart(ctxHumidity, {
+    //     type: 'line',
+    //     data: {
+    //       labels: labels,
+    //       datasets: [{
+    //         label: `Avg Humidity % (${capitalize(currentAnalyticsFilter)})`,
+    //         data: humidityData,
+    //         borderColor: 'rgba(231, 76, 60, 0.9)',
+    //         fill: false
+    //       }]
+    //     }
+    //   });
+    // }
+
+    // Populate the second dropdown (Filter Values) based on type selected
+    function populateFilterValuesDropdown() {
+      const type = document.getElementById("filterTypeAnalytics").value; // device or commodity
+      const valueDropdown = document.getElementById("filterValueAnalytics");
+      valueDropdown.innerHTML = "";
+
+      const uniqueValues = [...new Set(allReadings.map(r => r[type]))];
+
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "All";
+      valueDropdown.appendChild(defaultOption);
+
+      uniqueValues.forEach(val => {
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = val;
+        valueDropdown.appendChild(opt);
+      });
+
+      renderCharts();
     }
-  });
 
-  // Number of Samples Tested Chart
-  samplesChart = new Chart(document.getElementById("samplesChart"), {
-    type: "bar",
-    data: { labels, datasets: [{ label: "# Samples Tested", data: samplesData, backgroundColor: "rgba(46, 204, 113, 0.6)" }] },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { display: true, position: 'top' },
-        title: { display: true, text: "Number of Samples Tested", font: { size: 18, weight: 'bold' } }
-      },
-      scales: { y: { beginAtZero: true } }
+    // Render charts filtered by selected value
+    function renderCharts() {
+      const filterType = document.getElementById("filterTypeAnalytics").value; // device or commodity
+      const filterValue = document.getElementById("filterValueAnalytics").value; // selected item or ""
+
+      const filteredReadings = filterValue
+        ? allReadings.filter(r => r[filterType] === filterValue)
+        : allReadings;
+
+      const grouped = {};
+
+      filteredReadings.forEach(r => {
+        const dateObj = new Date(r.date);
+        let key = "";
+
+        if (currentAnalyticsFilter === "daily") {
+          // key = dateObj.toISOString().split("T")[0];
+          const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+          const day = String(dateObj.getDate()).padStart(2, '0');
+          key = `${month}-${day}`;
+        } else if (currentAnalyticsFilter === "weekly") {
+          // const year = dateObj.getFullYear();
+          // const week = getISOWeekNumber(dateObj);
+          // key = `${year}-W${week}`;
+          key = getISOWeekDateRange(dateObj);
+        } else if (currentAnalyticsFilter === "monthly") {
+          const year = dateObj.getFullYear();
+          const month = String(dateObj.getMonth() + 1).padStart(2, "0");
+          key = `${year}-${month}`;
+        }
+
+        if (!grouped[key]) grouped[key] = { moisture: 0, humidity: 0, count: 0 };
+        grouped[key].moisture += r.moisture;
+        grouped[key].humidity += r.humidity;
+        grouped[key].count += 1;
+      });
+
+      const labels = Object.keys(grouped).sort();
+      const moistureData = labels.map(k => (grouped[k].moisture / grouped[k].count).toFixed(2));
+      const humidityData = labels.map(k => (grouped[k].humidity / grouped[k].count).toFixed(2));
+      const samplesData = labels.map(k => grouped[k].count);
+
+      // Destroy old charts
+      if (moistureChart) moistureChart.destroy();
+      if (humidityChart) humidityChart.destroy();
+      if (samplesChart) samplesChart.destroy();
+
+      // moistureChart = new Chart(document.getElementById("moistureChart"), {
+      //   type: "bar",
+      //   data: { labels, datasets: [{ label: "Avg Moisture %", data: moistureData, backgroundColor: "rgba(52, 152, 219, 0.6)" }] },
+      //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+      // });
+
+      // humidityChart = new Chart(document.getElementById("humidityChart"), {
+      //   type: "line",
+      //   data: { labels, datasets: [{ label: "Avg Humidity %", data: humidityData, borderColor: "rgba(231, 76, 60, 0.9)", fill: false }] },
+      //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+      // });
+
+      // samplesChart = new Chart(document.getElementById("samplesChart"), {
+      //   type: "bar",
+      //   data: { labels, datasets: [{ label: "Number of Samples", data: samplesData, backgroundColor: "rgba(46, 204, 113, 0.6)" }] },
+      //   options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+      // });
+
+      // Average Moisture Chart
+      moistureChart = new Chart(document.getElementById("moistureChart"), {
+        type: "bar",
+        data: { labels, datasets: [{ label: "Avg Moisture (%)", data: moistureData, backgroundColor: "rgba(52, 152, 219, 0.6)" }] },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true, position: 'top' },
+            title: { display: true, text: "Average Moisture (%)", font: { size: 18, weight: 'bold' } }
+          },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // Average Humidity Chart
+      humidityChart = new Chart(document.getElementById("humidityChart"), {
+        type: "line",
+        data: { labels, datasets: [{ label: "Avg Humidity (%)", data: humidityData, borderColor: "rgba(231, 76, 60, 0.9)", backgroundColor: "rgba(231, 76, 60, 0.4)", fill: true, tension: 0.3 }] },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true, position: 'top' },
+            title: { display: true, text: "Average Humidity (%)", font: { size: 18, weight: 'bold' } }
+          },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // Number of Samples Tested Chart
+      samplesChart = new Chart(document.getElementById("samplesChart"), {
+        type: "bar",
+        data: { labels, datasets: [{ label: "# Samples Tested", data: samplesData, backgroundColor: "rgba(46, 204, 113, 0.6)" }] },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true, position: 'top' },
+            title: { display: true, text: "Number of Samples Tested", font: { size: 18, weight: 'bold' } }
+          },
+          scales: { y: { beginAtZero: true } }
+        }
+      });
     }
-  });
-}
 
-populateFilterValuesDropdown();
-  // Helper: Get ISO Week Number (1-53)
-  // function getISOWeekNumber(date) {
-  //   const tempDate = new Date(date.getTime());
-  //   tempDate.setHours(0, 0, 0, 0);
-  //   tempDate.setDate(tempDate.getDate() + 3 - (tempDate.getDay() + 6) % 7);
-  //   const week1 = new Date(tempDate.getFullYear(), 0, 4);
-  //   return 1 + Math.round(((tempDate - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
-  // }
-  function getISOWeekDateRange(date) {
-    const tempDate = new Date(date.getTime());
-  tempDate.setHours(0, 0, 0, 0);
+    populateFilterValuesDropdown();
+    // Helper: Get ISO Week Number (1-53)
+    // function getISOWeekNumber(date) {
+    //   const tempDate = new Date(date.getTime());
+    //   tempDate.setHours(0, 0, 0, 0);
+    //   tempDate.setDate(tempDate.getDate() + 3 - (tempDate.getDay() + 6) % 7);
+    //   const week1 = new Date(tempDate.getFullYear(), 0, 4);
+    //   return 1 + Math.round(((tempDate - week1) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+    // }
+    function getISOWeekDateRange(date) {
+      const tempDate = new Date(date.getTime());
+      tempDate.setHours(0, 0, 0, 0);
 
-  // Adjust to Thursday in the current week (ISO week)
-  tempDate.setDate(tempDate.getDate() + 3 - (tempDate.getDay() + 6) % 7);
+      // Adjust to Thursday in the current week (ISO week)
+      tempDate.setDate(tempDate.getDate() + 3 - (tempDate.getDay() + 6) % 7);
 
-  // Calculate Monday (start) of the week
-  const startOfWeek = new Date(tempDate);
-  startOfWeek.setDate(startOfWeek.getDate() - ((tempDate.getDay() + 6) % 7));
+      // Calculate Monday (start) of the week
+      const startOfWeek = new Date(tempDate);
+      startOfWeek.setDate(startOfWeek.getDate() - ((tempDate.getDay() + 6) % 7));
 
-  // Sunday (end) of the week
-  const endOfWeek = new Date(startOfWeek);
-  endOfWeek.setDate(endOfWeek.getDate() + 6);
+      // Sunday (end) of the week
+      const endOfWeek = new Date(startOfWeek);
+      endOfWeek.setDate(endOfWeek.getDate() + 6);
 
-  // Format MM-DD
-  const startStr = `${String(startOfWeek.getMonth() + 1).padStart(2, '0')}-${String(startOfWeek.getDate()).padStart(2, '0')}`;
-  const endStr = `${String(endOfWeek.getMonth() + 1).padStart(2, '0')}-${String(endOfWeek.getDate()).padStart(2, '0')}`;
+      // Format MM-DD
+      const startStr = `${String(startOfWeek.getMonth() + 1).padStart(2, '0')}-${String(startOfWeek.getDate()).padStart(2, '0')}`;
+      const endStr = `${String(endOfWeek.getMonth() + 1).padStart(2, '0')}-${String(endOfWeek.getDate()).padStart(2, '0')}`;
 
-  return `${startStr} to ${endStr}`;
-  }
+      return `${startStr} to ${endStr}`;
+    }
 
-  // Helper: Capitalize string
-  function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-     function openLimitPopup() {
+    // Helper: Capitalize string
+    function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+    function openLimitPopup() {
       document.getElementById("limitModal").style.display = "block";
       document.getElementById("limitInput").value = userMoistureLimit;
     }
@@ -1183,14 +1203,14 @@ populateFilterValuesDropdown();
     }
 
     function saveLimit() {
-     const newLimit = parseInt(document.getElementById("limitInput").value);
-     if (!isNaN(newLimit) && newLimit >= 0) {
-       userMoistureLimit = newLimit;
-       document.getElementById("moistureLimit").textContent = userMoistureLimit;
-       closeLimitPopup();
-       renderHomeStats(); // re-render with updated limit if needed
+      const newLimit = parseInt(document.getElementById("limitInput").value);
+      if (!isNaN(newLimit) && newLimit >= 0) {
+        userMoistureLimit = newLimit;
+        document.getElementById("moistureLimit").textContent = userMoistureLimit;
+        closeLimitPopup();
+        renderHomeStats(); // re-render with updated limit if needed
       } else {
-       alert("Please enter a valid number.");
+        alert("Please enter a valid number.");
       }
     }
     function renderHomeStats() {
@@ -1205,9 +1225,9 @@ populateFilterValuesDropdown();
       document.getElementById("belowLimit").textContent = below;
     }
 
-  // Initial load
-  fetchReadings();
-</script>
+    // Initial load
+    fetchReadings();
+  </script>
 
   <script>
     document.querySelectorAll('.sidebar a').forEach(link => {
@@ -1222,4 +1242,5 @@ populateFilterValuesDropdown();
   </script>
 
 </body>
+
 </html>
