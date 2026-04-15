@@ -642,18 +642,23 @@
         const data = await response.json();
 
         // Sort by moistdate in descending order (latest first)
-        data.sort((a, b) => new Date(b.moistdate) - new Date(a.moistdate));
+        // data.sort((a, b) => new Date(b.moistdate) - new Date(a.moistdate));
+        data.sort((a, b) => parseDate(b.moistdate) - parseDate(a.moistdate));
 
-        allReadings = data.map((item, index) => ({
-          id: index + 1,
-          date: new Date(item.moistdate).toISOString().split("T")[0],
-          moisture: parseFloat(item.moisture),
-          humidity: parseFloat(item.humidity),
-          temperature: item.temperature + "°C",
-          commodity: item.commodity,
-          lot: item.id,
-          device: item.deviceId
-        }));
+        allReadings = data.map((item, index) => {
+          const parsedDate = parseDate(item.moistdate);
+
+          return {
+            id: index + 1,
+            date: isNaN(parsedDate) ? "-" : parsedDate.toISOString().split("T")[0],
+            moisture: parseFloat(item.moisture),
+            humidity: parseFloat(item.humidity),
+            temperature: item.temperature + "°C",
+            commodity: item.commodity,
+            lot: item.id,
+            device: item.deviceId
+          };
+        });
 
         renderTable(1);
         renderCharts();
@@ -1224,7 +1229,19 @@
       document.getElementById("aboveLimit").textContent = above;
       document.getElementById("belowLimit").textContent = below;
     }
+    function parseDate(dateStr) {
+      if (!dateStr) return new Date(0);
 
+      // Handle DD/MM/YYYY
+      if (dateStr.includes("/")) {
+        const [datePart, timePart] = dateStr.split(" ");
+        const [d, m, y] = datePart.split("/");
+        return new Date(`${y}-${m}-${d}T${timePart || "00:00:00"}`);
+      }
+
+      // Handle YYYY-MM-DD
+      return new Date(dateStr.replace(" ", "T"));
+    }
     // Initial load
     fetchReadings();
   </script>
