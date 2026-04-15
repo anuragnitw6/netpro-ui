@@ -469,7 +469,7 @@
           <tr>
             <th>#</th>
             <th>Date</th>
-            <th>Sample</th>
+            <th>Sample ID</th>
             <th>Crop</th>
             <th>Moisture (%)</th>
             <th>Humidity</th>
@@ -921,19 +921,19 @@
       // Add BOM (Byte Order Mark) for UTF-8 Excel compatibility
       let csvContent = "\uFEFF";
 
-      const headers = ["ID", "Date", "Commodity", "Sample", "Device Id", "Moisture", "Humidity", "Temperature"];
+      const headers = ["S. No.", "Date", "Sample Id", "Crop", "Moisture (%)", "Humidity", "Temperature", "Device Id"];
       csvContent += headers.join(",") + "\r\n";
 
       filtered.forEach((r) => {
         const row = [
           replacer(r.id),
           replacer(r.date),
-          replacer(r.commodity),
           replacer(r.lot),
-          replacer(r.device),
+          replacer(r.commodity),
           replacer(r.moisture),
           replacer(r.humidity),
           replacer(r.temperature),
+          replacer(r.device),
         ];
         csvContent += row.join(",") + "\r\n";
       });
