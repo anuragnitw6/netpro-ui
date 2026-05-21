@@ -654,9 +654,9 @@
             date: isNaN(parsedDate) ? "-" : parsedDate.toISOString().split("T")[0],
             moisture: parseFloat(item.moisture),
             humidity: parseFloat(item.humidity),
-            temperature: item.temperature + "°C",
+            temperature: item.temperature,
             commodity: item.commodity,
-            lot: item.id,
+            lot: item.lot,
             device: item.deviceId
           };
         });
