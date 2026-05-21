@@ -623,13 +623,13 @@
 
     async function fetchReadings() {
       try {
-        const userid = "user_1";
+        const userid = "1";
 
         // const response = await fetch("https://api.neuronwise.in/nw-ui/add_moist?userid=" + userid, {
         //   method: "POST",
         // });
         const response = await fetch(
-          `https://uqx4a9tgih.execute-api.us-east-1.amazonaws.com/prod/get_moisture?userid=${userid}`,
+          `https://neuronwise.in/netpro_fci_get_moisture.php?userid=${userid}`,
           {
             method: "GET",
             headers: {
